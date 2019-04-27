@@ -11,11 +11,13 @@ import { Provider } from 'react-redux';
 // import configureStore from './2-action-creators/store';
 
 // 3 - TODO (using dan example)
+import { createStore } from 'redux';
+import reducer from './3-todowithfilter/mytodos/reducers';
 import App from './3-todowithfilter/mytodos/components/App';
-// import configureStore from './2-action-creators/store';
+const store = createStore(reducer);
 
 ReactDOM.render(
-    // <Provider store={configureStore()} >
+    <Provider store={store} >
         <App />
-    //  </Provider>
+    </Provider>
     , document.getElementById('root'));

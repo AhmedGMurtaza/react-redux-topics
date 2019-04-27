@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/addTodo';
-import {PropTypes} from 'prop-types';
+import { addTodo } from '../actions';
+// import {PropTypes} from 'prop-types';
 
 const Todo = ({dispatch}) => {
+    console.log(dispatch)
     let input;
     return (
         <div>
             <form 
-                onSubmit={()=>{
-                    console.log(input.value);
+                onSubmit={(e)=>{
+                    e.preventDefault();
                     dispatch(addTodo(input.value));
                 }}
                 >
@@ -25,12 +26,9 @@ const Todo = ({dispatch}) => {
     );
 }
 
-// Todo.propTypes = {
-// }
-
-
 /* 
     if we dont pass mapstatetoprops and dispatchtoprops it will pass {dispatch} func 
     as prop to the component by default 
 */
+
 export default connect()(Todo);
