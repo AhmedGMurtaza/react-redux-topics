@@ -12,7 +12,7 @@ import { createStore } from 'redux';
 // import configureStore from './2-action-creators/store';
 
 // 3 - TODO (using dan example)
-import reducer from './3-todowithfilter/testtodo/reducers/todo';
+import reducer from './3-todowithfilter/testtodo/reducers';
 import App from './3-todowithfilter/testtodo/components/App';
 const store = createStore(reducer);
 

@@ -1,40 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import { connect } from 'react-redux';
-// Actions
-import {addTodo} from '../actions/todoActions';
+
+// Components
+import AddTodo from './AddTodo';
+import TodoList from './TodoList';
+import Filters from './Filters';
+// Styles
 import './styles.css';
 
-const App = ({dispatch, tasks}) => {
-    let taskInput;
+const App = () => {
     return(
         <Fragment>
-            <form onSubmit={(e)=>{
-                e.preventDefault();
-                dispatch(addTodo(taskInput.value));
-                }
-            }>
-                <input ref={node => taskInput = node} placeholder="Add your task here.."/>
-                <button>Add</button>
-            </form>
-            <ul className="tasks-list">
-                {
-                    tasks.map((item,index)=><li key={index.toString()}>{item.text}</li>)
-                }
-            </ul>
-            <div className="filters">
-                <a href="#" onClick={(e)=>e.preventDefault()}>All</a>
-                <a href="#" onClick={(e)=>e.preventDefault()}>Active</a>
-                <a href="#" onClick={(e)=>e.preventDefault()}>Completed</a>
-            </div>
+            <AddTodo />
+            <TodoList />
+            <Filters />
 
         </Fragment>
     )
 }
 
-const mapStateToProps = todoState => {
-    return {
-        tasks:todoState
-    }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
