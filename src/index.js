@@ -16,6 +16,10 @@ import reducer from './3-todowithfilter/testtodo/reducers';
 import App from './3-todowithfilter/testtodo/components/App';
 const store = createStore(reducer);
 
+store.subscribe(function(){
+    console.log(store.getState());
+})
+
 ReactDOM.render(
     <Provider store={store} >
         <App />

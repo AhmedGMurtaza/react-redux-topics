@@ -11,10 +11,8 @@ const todos = (state = [], action)=>{
         ];
         case 'TOGGLE_TODO':
             return state;
-            break;
         default:
             return state;
-            break;
     }
 }
 export default todos;

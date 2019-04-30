@@ -1,10 +1,10 @@
-import React, {Component, Fragment} from 'react';
-import { connect } from 'react-redux';
+import React, {Fragment} from 'react';
 
 // Components
 import AddTodo from './AddTodo';
 import TodoList from './TodoList';
-import Filters from './Filters';
+import VisibilityFilters from './VisibilityFilters';
+
 // Styles
 import './styles.css';
 
@@ -13,7 +13,7 @@ const App = () => {
         <Fragment>
             <AddTodo />
             <TodoList />
-            <Filters />
+            <VisibilityFilters />
 
         </Fragment>
     )
