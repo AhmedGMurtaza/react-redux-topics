@@ -8,8 +8,12 @@ const AddTodo = ({dispatch}) => {
     return(
         <form onSubmit={(e)=>{
             e.preventDefault();
-            dispatch(addTodo(taskInput.value));
+            if(taskInput.value.trim().length > 0){
+                dispatch(addTodo(taskInput.value));
+                taskInput.value = '';
+                taskInput.focus();
             }
+        }
         }>
             <input ref={node => taskInput = node} placeholder="Add your task here.."/>
             <button>Add</button>

@@ -8,3 +8,10 @@ button.active{
     background:#222222;
     color:white;
 }
+li{
+    font-size:27px;
+}
+
+li.completed{
+    text-decoration: line-through;
+}

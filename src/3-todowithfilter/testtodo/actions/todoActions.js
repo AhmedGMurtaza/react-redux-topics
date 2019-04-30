@@ -7,3 +7,11 @@ export const addTodo = text => (
         text
     }
 )
+
+export const toggleTodo = (id, prevStatus) => {
+    return {
+        type:'TOGGLE_TODO',
+        status:prevStatus === 'ACTIVE'?'COMPLETED':'ACTIVE',
+        id
+    }
+}
