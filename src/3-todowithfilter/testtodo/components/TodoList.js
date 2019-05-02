@@ -4,13 +4,11 @@ import { toggleTodo } from '../actions/todoActions';
 
 class TodoList extends React.Component{
     render(){
-        const { tasks, activeFilter, onToggleTodo } = this.props;
-        let list = filteredList(tasks,activeFilter);
-        // console.log(list);
+        const { tasks, onToggleTodo } = this.props;
         return(
             <ul className="tasks-list">
             {
-                list.map((item,index)=>{
+                tasks.map((item,index)=>{
                     return (
                         <li 
                         className={item.status === 'COMPLETED'?'completed':''} 
@@ -36,14 +34,10 @@ const filteredList = (tasks,activeFilter) => {
     }
 }
 
-const listItem = props => {
-}
-
 const mapStateToProps = todoState => {
     const { todos, visibilityFilters } = todoState;
     return {
-        tasks:todos,
-        activeFilter:visibilityFilters.activeFilter
+        tasks:filteredList(todos, visibilityFilters.activeFilter)
     }
 }
 
